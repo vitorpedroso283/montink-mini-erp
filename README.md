@@ -61,8 +61,8 @@ resources/views/
 ## 🚀 Como rodar o projeto localmente
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
+git clone https://github.com/vitorpedroso283/montink-mini-erp.git
+cd montik-mini-erp
 cp .env.example .env
 composer install
 php artisan key:generate
