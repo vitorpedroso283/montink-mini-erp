@@ -62,7 +62,7 @@ resources/views/
 
 ```bash
 git clone https://github.com/vitorpedroso283/montink-mini-erp.git
-cd montik-mini-erp
+cd montink-mini-erp
 cp .env.example .env
 composer install
 php artisan key:generate
@@ -81,6 +81,18 @@ Acesse: `http://localhost:8000/admin`
 php artisan make:filament-user
 # Siga as instruções para criar o usuário admin
 ```
+
+---
+
+## 💡 Outros testes realizados
+
+Este projeto foi desenvolvido com Filament + Livewire por ser a combinação mais eficiente para entregar rapidamente uma interface funcional, escalável e moderna.
+
+Outros testes que realizei e entreguei com sucesso:
+
+- ✅ [**Fidelizi**](https://github.com/vitorpedroso283/FIDELITA) – Laravel puro com API RESTful estruturada
+- ✅ [**Easyjur**](https://github.com/vitorpedroso283/TaskManagerApp) – PHP puro com jQuery, JS e Bootstrap.  
+  Arquitetura MVC manual com separação de controllers, views, rotas e modelos. Sistema de login, permissões, tarefas e relatórios.
 
 ---
 
