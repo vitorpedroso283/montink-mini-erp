@@ -6,7 +6,7 @@ use App\Livewire\CouponManager;
 use App\Livewire\ProductManager;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', ProductManager::class);
-Route::get('/carrinho', CartManager::class);
-Route::get('/finalizar', CheckoutForm::class);
+Route::get('/', ProductManager::class)->name('products.index');;
+Route::get('/cart', CartManager::class);
+Route::get('/checkout', CheckoutForm::class)->name('checkout');
 Route::get('/cupons', CouponManager::class);

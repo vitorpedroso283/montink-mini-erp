@@ -4,23 +4,39 @@ Este projeto foi desenvolvido como parte do processo seletivo para a vaga de Des
 
 ---
 
+## 💡 Sobre a estrutura da aplicação
+
+O enunciado do teste menciona a criação de um "mini ERP" com a possibilidade de cadastrar produtos e comprá-los na mesma tela.
+
+Como desenvolvedor experiente e acostumado a pensar em sistemas que funcionam bem na prática, percebi que a descrição mistura funcionalidades administrativas (ERP/painel) com ações típicas de um cliente final (e-commerce/carrinho).
+
+Por isso, optei por **separar as responsabilidades de forma clara e mais próxima da realidade de projetos robustos**:
+
+-   🛠️ **Filament (admin)**: para gerenciar produtos, variações, estoque e cupons.
+-   🛒 **Livewire (usuário final)**: para simular o fluxo de compra — carrinho, aplicação de cupons, verificação de CEP e finalização do pedido.
+
+Essa decisão visa entregar uma arquitetura mais coesa, respeitando o padrão MVC e favorecendo clareza, escalabilidade e manutenção.
+
+---
+
 ## ⚙️ Tecnologias utilizadas
 
-- **Laravel 10**
-- **Filament v3** (como painel administrativo moderno)
-- **TailwindCSS**
-- **Livewire**
-- **MySQL**
-- API pública do [ViaCEP](https://viacep.com.br/)
-- Envio de e-mails nativo do Laravel
+-   **Laravel 12**
+-   **Filament v3** (painel administrativo)
+-   **TailwindCSS**
+-   **Livewire** (interface pública)
+-   **MySQL**
+-   **PHP8.4**
+-   API pública do [ViaCEP](https://viacep.com.br/)
+-   Envio de e-mails nativo do Laravel
 
 ---
 
 ## 🧠 Decisão técnica
 
-Sim, eu poderia ter feito tudo com **PHP puro**, **CodeIgniter 3** ou **Laravel sem painel** — e ficaria feliz em provar isso no código se necessário 😄
+Sim, eu poderia ter feito tudo com **PHP puro**, **CodeIgniter 3** ou **Laravel puro com Blade** — e já fiz isso com sucesso em outros testes técnicos que resultaram em aprovação. (Links abaixo 👇)
 
-> Mas como o tempo era curto e o escopo exigia um CRUD funcional completo, preferi focar em **resolver o problema com clareza, boas práticas e agilidade**, usando o **Filament como painel administrativo**. 
+> No entanto, para este desafio, preferi **focar na entrega do problema com clareza, boas práticas e agilidade**, separando admin de front, evitando overengineering e garantindo organização sólida com uso de `Services`, `Models` bem estruturados e lógica separada da camada visual.
 
 ---
 
@@ -84,21 +100,21 @@ php artisan make:filament-user
 
 ---
 
-## 💡 Outros testes realizados
+## 💼 Outros testes realizados
 
-Este projeto foi desenvolvido com Filament + Livewire por ser a combinação mais eficiente para entregar rapidamente uma interface funcional, escalável e moderna.
+Este projeto foi feito com Livewire + Filament, pois essa combinação entrega produtividade, clareza visual e agilidade na entrega.
 
-Outros testes que realizei e entreguei com sucesso:
+Outros testes que realizei com sucesso:
 
-- ✅ [**Fidelizi**](https://github.com/vitorpedroso283/FIDELITA) – Laravel puro com API RESTful estruturada
-- ✅ [**Easyjur**](https://github.com/vitorpedroso283/TaskManagerApp) – PHP puro com jQuery, JS e Bootstrap.  
-  Arquitetura MVC manual com separação de controllers, views, rotas e modelos. Sistema de login, permissões, tarefas e relatórios.
+* ✅ [**Fidelizi**](https://github.com/vitorpedroso283/FIDELITA) – Aprovado como **Desenvolvedor Back-End**. Projeto feito em Laravel puro com API RESTful estruturada.
+* ✅ [**Easyjur**](https://github.com/vitorpedroso283/TaskManagerApp) – Aprovado como **Desenvolvedor Full Stack Sênior**. Projeto feito em PHP puro com jQuery, JS e Bootstrap.
+  Arquitetura MVC feita do zero, com controle de acesso, CRUD completo e relatórios.
 
 ---
 
 ## ✅ Observações finais
 
-Este projeto foi desenvolvido com foco em produtividade e boas práticas. Optei por **não reinventar a roda**, mas também **não terceirizar a lógica**: toda a parte de regras de negócio está devidamente separada em **services**, e o Filament foi utilizado apenas como **ferramenta de interface**, sem depender de scaffolding automático para lógica.
+Este projeto foi desenvolvido com foco em produtividade e boas práticas. Optei por **não reinventar a roda**, mas também **não terceirizar a lógica**: toda a parte de regras de negócio está devidamente separada em **services**, e o Filament foi utilizado apenas como **painel administrativo**, mantendo a interface de compra fora dele por questões de clareza.
 
 Se tiver qualquer dúvida técnica, posso explicar linha por linha — e com gosto.
 

@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('base_price'); // ex: 4990 para R$49,90
-            $table->timestamps();
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->boolean('ativo')->default(true)->after('valid_until');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->dropColumn('ativo');
+        });
     }
 };

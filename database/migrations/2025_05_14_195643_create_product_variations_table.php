@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product_variations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('base_price'); // ex: 4990 para R$49,90
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->string('name'); // ex: Tamanho M
+            $table->string('sku')->nullable();
+            $table->unsignedBigInteger('price')->nullable(); // pode sobrepor o price do produto
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product_variations');
     }
 };

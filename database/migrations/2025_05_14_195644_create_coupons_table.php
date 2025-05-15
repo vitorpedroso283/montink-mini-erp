@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('base_price'); // ex: 4990 para R$49,90
+            $table->string('code')->unique();
+            $table->unsignedInteger('discount_percent'); // em %
+            $table->unsignedBigInteger('min_value'); // em centavos
+            $table->date('valid_until');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('coupons');
     }
 };
